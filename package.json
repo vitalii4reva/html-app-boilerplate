@@ -28,6 +28,7 @@
     "browser-sync": "^2.18.13",
     "css-mqpacker": "^6.0.1",
     "del": "^3.0.0",
+    "eslint": "^4.11.0",
     "eslint-formatter-pretty": "^1.1.0",
     "eslint-loader": "^1.9.0",
     "gsap": "^1.20.2",
