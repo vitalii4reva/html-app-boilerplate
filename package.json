@@ -52,6 +52,7 @@
     "gulp-util": "^3.0.8",
     "htmlhint": "^0.9.13",
     "husky": "^0.14.3",
+    "imagemin-pngquant": "^5.0.1",
     "jquery": "^3.2.1",
     "lint-staged": "^5.0.0",
     "lost": "^8.2.0",

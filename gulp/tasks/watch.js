@@ -3,8 +3,6 @@ const gulp   = require('gulp');
 
 gulp.task('watch',
     ['copy:watch',
-
-    // 'list-pages:watch',
     'images:watch',
     'webpack:watch',
     'styles:watch'

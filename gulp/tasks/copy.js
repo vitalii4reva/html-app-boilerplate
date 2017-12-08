@@ -43,11 +43,8 @@ gulp.task('copy:img', function() {
 });
 
 gulp.task('copy', [
-    // 'copy:img',
     'copy:html',
-    // 'copy:rootfiles',
     'copy:static',
-    // 'copy:lib',
     'copy:fonts'
 ]);
 gulp.task('copy:watch', function() {

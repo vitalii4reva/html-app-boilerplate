@@ -31,7 +31,6 @@ gulp.task('styles', function() {
         }))
         .on('error', config.errorHandler)
         .pipe(postcss(processors))
-        // .pipe(gulpif(config.production, concat(config.outputCSS)))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.dest.css));
 });

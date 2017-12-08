@@ -3,8 +3,6 @@ var path = require('path');
 var util = require('gulp-util');
 var config = require('./gulp/config');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-// uncomment in case of emergency code formatter need
-// var PrettierPlugin = require('prettier-webpack-plugin');
 
 function createConfig(env) {
     var isProduction, webpackConfig;
