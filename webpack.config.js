@@ -3,6 +3,8 @@ var path = require('path');
 var util = require('gulp-util');
 var config = require('./gulp/config');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// uncomment in case of emergency code formatter need
+// var PrettierPlugin = require('prettier-webpack-plugin');
 
 function createConfig(env) {
     var isProduction, webpackConfig;
@@ -24,15 +26,32 @@ function createConfig(env) {
             filename: '[name].js',
             publicPath: 'scripts/'
         },
+        mode: process.env.NODE_ENV,
+        performance: {
+          hints: process.env.NODE_ENV === 'production' ? "warning" : false
+        },
         devtool: isProduction ?
             '#source-map' :
             '#cheap-module-eval-source-map',
+        optimization: {
+          minimize: process.env.NODE_ENV === 'production' ? true : false,
+          splitChunks: {
+            cacheGroups: {
+              vendor: {
+                chunks: "initial",
+                test: path.resolve(__dirname, "node_modules"),
+                name: "vendor",
+                enforce: true
+              }
+            }
+          }
+        },
         plugins: [
-            new webpack.optimize.CommonsChunkPlugin({
-                name: 'vendor',
-                filename: '[name].js',
-                minChunks: Infinity
-            }),
+            // new webpack.optimize.CommonsChunkPlugin({
+            //     name: 'vendor',
+            //     filename: '[name].js',
+            //     minChunks: Infinity
+            // }),
             // uncomment in case of emergency code formatter need
             // new PrettierPlugin({
             //     printWidth: 80,
@@ -79,11 +98,11 @@ function createConfig(env) {
             new webpack.LoaderOptionsPlugin({
                 minimize: true
             }),
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                }
-            })
+            // new webpack.optimize.UglifyJsPlugin({
+            //     compress: {
+            //         warnings: false
+            //     }
+            // })
         );
     }
 

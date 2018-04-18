@@ -1,4 +1,4 @@
-const util = require('gulp-util');
+const util = require('gulp-util'); // eslint-disable-line
 
 const production = util.env.production || util.env.prod || false;
 const distPath = 'dist';
@@ -42,7 +42,7 @@ const config = {
         lib     : distPath + '/lib'
     },
     ftp: {
-      user            : 'zenwaycode_' + ftpCredentials.user,
+      user            : ftpCredentials.user,
       password        : ftpCredentials.password,
       host            : ftpCredentials.host,
       port            : 21,
